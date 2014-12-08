@@ -17,9 +17,9 @@ import javax.sound.sampled.FloatControl;
 
 public class Voice {
 	
-	private float sampleRate=8000;
+	private float sampleRate=16000;
 	private int sampleSizeInBits=8;
-	int channels = 1;
+	int channels = 2;
 	boolean signed = true;
 	boolean bigEndian = true;
 	
