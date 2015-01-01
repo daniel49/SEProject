@@ -1,60 +1,55 @@
-package mta.se.chitchat;
+package core;
 
-import java.io.ByteArrayOutputStream;
+import javax.swing.JOptionPane;
 
-import mta.se.chitchat.Voice;
+import core.controller.ChatController;
+import core.model.ChatModel;
+import core.model.MasterModel;
+import core.view.ChatView;
 
+/**
+ * 
+ * @author Ilie Daniel, Cosovanu Vasile and Radu Ionut </p> Software Engineering
+ *         Project </p> The main entry of the program
+ */
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-	    
-    	
-    	final Voice vc = new Voice();
-        final ByteArrayOutputStream out = new ByteArrayOutputStream();	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
 
-        Runnable recordRunner = new Runnable() {
-        	 
-    	      public void run() {
-    	    	  try {
-    	    		  vc.recordVoice(out);
-    	    		  System.out.print(out.toByteArray());
-    	    	  }
-    	    	  catch(Exception e) {
-    	    		  System.exit(-1);
-    	    	  }
-    	      }
-          
-          
-        };
-        
-        
-        
-        
-        Thread captureThread = new Thread(recordRunner);
-        captureThread.start();  
-        
-        Thread.sleep(5000);
-        
+			// Instantiate the MVC elements
+			MasterModel master = new MasterModel();
+			ChatModel model = master.configureMasterModel();
+			// ChatModel model = new ChatModel(master);
+			ChatView view = null;
+			try {
+				view = new ChatView();
+				view.frmChitChat.setVisible(true);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			ChatController controller = new ChatController();
 
-        final byte[] data = out.toByteArray();
-        
-        Runnable playRunner = new Runnable() {
-        	Voice vc = new Voice();
-    	      public void run() {
-    	    	  try {
-    	    		  vc.playVoice(data);
-    	    	  }
-    	    	  catch(Exception e) {
-    	    		  System.exit(-1);
-    	    	  }
-    		 }
-      
-        };
-        
-        
-        
-        Thread playThread = new Thread(playRunner);
-        playThread.start();
+			// Attach the view to the model
+			model.addModelListener(view);
 
-      }
+			// Tell the view about the model and the controller
+			view.addModel(model);
+			view.addController(controller);
+
+			// Tell the controller about the model and the view
+			controller.addModel(model);
+			controller.addView(view);
+
+		} catch (Throwable t) {
+			System.err.println("Exception occurred in main():");
+			t.printStackTrace();
+			System.exit(1);
+		}
+	}
+
 }
