@@ -1,8 +1,8 @@
-package core.network;
+package mta.se.chitchat.network;
 
-import static core.utils.Constants.TCP_NODELAY;
-import static core.utils.Constants.TCP_RECEIVE_BUFFER_SIZE;
-import static core.utils.Constants.TCP_SEND_BUFFER_SIZE;
+import static mta.se.chitchat.utils.Constants.TCP_NODELAY;
+import static mta.se.chitchat.utils.Constants.TCP_RECEIVE_BUFFER_SIZE;
+import static mta.se.chitchat.utils.Constants.TCP_SEND_BUFFER_SIZE;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ import java.net.SocketTimeoutException;
 
 import javax.swing.JOptionPane;
 
-import core.model.MasterModel;
+import mta.se.chitchat.model.MasterModel;
 
 /**
  * 

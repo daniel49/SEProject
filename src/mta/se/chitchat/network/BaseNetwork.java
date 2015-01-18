@@ -1,8 +1,8 @@
-package core.network;
+package mta.se.chitchat.network;
 
-import core.interfaces.INetwork;
-import core.model.MasterModel;
-import core.settings.ConnectionSettings;
+import mta.se.chitchat.interfaces.INetwork;
+import mta.se.chitchat.model.MasterModel;
+import mta.se.chitchat.settings.ConnectionSettings;
 
 /**
  * 

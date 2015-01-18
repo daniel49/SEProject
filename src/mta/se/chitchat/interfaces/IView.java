@@ -1,4 +1,4 @@
-package core.interfaces;
+package mta.se.chitchat.interfaces;
 
 /**
  * 

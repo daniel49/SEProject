@@ -1,11 +1,11 @@
-package core;
+package mta.se.chitchat;
 
 import javax.swing.JOptionPane;
 
-import core.controller.ChatController;
-import core.model.ChatModel;
-import core.model.MasterModel;
-import core.view.ChatView;
+import mta.se.chitchat.controller.ChatController;
+import mta.se.chitchat.model.ChatModel;
+import mta.se.chitchat.model.MasterModel;
+import mta.se.chitchat.view.ChatView;
 
 /**
  * 
