@@ -70,7 +70,7 @@ public class Gateway {
             String data_to_client;
 
             while (true) {
-                Socket sockClient = gtwySocket.accept();
+                SSLSocket sockClient = gtwySocket.accept();
                 BufferedReader in = new BufferedReader(new InputStreamReader(sockClient.getInputStream()));
                 DataOutputStream out = new DataOutputStream(sockClient.getOutputStream());
                 data_from_client = in.readLine();
