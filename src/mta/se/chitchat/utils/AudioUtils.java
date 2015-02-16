@@ -1,16 +1,12 @@
 package mta.se.chitchat.utils;
 
-import static core.utils.Constants.FORMAT_CODE_CD;
-import static core.utils.Constants.FORMAT_CODE_FM;
-import static core.utils.Constants.FORMAT_CODE_GSM;
-import static core.utils.Constants.FORMAT_CODE_TELEPHONE;
-
-import java.io.InputStream;
-
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.InputStream;
+
+import static mta.se.chitchat.utils.Constants.*;
 
 /**
  * 
