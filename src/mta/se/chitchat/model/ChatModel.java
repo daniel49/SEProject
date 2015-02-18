@@ -1,15 +1,15 @@
-package core.model;
+package mta.se.chitchat.model;
 
-import static core.utils.Constants.AUDIO_PROPERTY;
-import static core.utils.Constants.CONNECTION_PROPERTY;
-import static core.utils.Constants.CONNECTION_TYPE_TCP;
-import static core.utils.Constants.DIR_MIC;
-import static core.utils.Constants.DIR_SPK;
-import static core.utils.Constants.PROTOCOL_ACK;
-import static core.utils.Constants.PROTOCOL_ERROR;
-import static core.utils.Constants.PROTOCOL_MAGIC;
-import static core.utils.Constants.PROTOCOL_VERSION;
-import static core.utils.Constants.FORMAT_CODE_TELEPHONE;
+import static mta.se.chitchat.utils.Constants.AUDIO_PROPERTY;
+import static mta.se.chitchat.utils.Constants.CONNECTION_PROPERTY;
+import static mta.se.chitchat.utils.Constants.CONNECTION_TYPE_TCP;
+import static mta.se.chitchat.utils.Constants.DIR_MIC;
+import static mta.se.chitchat.utils.Constants.DIR_SPK;
+import static mta.se.chitchat.utils.Constants.FORMAT_CODE_TELEPHONE;
+import static mta.se.chitchat.utils.Constants.PROTOCOL_ACK;
+import static mta.se.chitchat.utils.Constants.PROTOCOL_ERROR;
+import static mta.se.chitchat.utils.Constants.PROTOCOL_MAGIC;
+import static mta.se.chitchat.utils.Constants.PROTOCOL_VERSION;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -24,16 +24,16 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import core.interfaces.IModelListener;
-import core.interfaces.INetwork;
-import core.network.TCPNetwork;
-import core.security.Security;
-import core.settings.AudioSettings;
-import core.settings.ConnectionSettings;
-import core.utils.AudioBase;
-import core.utils.AudioCapture;
-import core.utils.AudioPlayback;
-import core.utils.AudioUtils;
+import mta.se.chitchat.interfaces.IModelListener;
+import mta.se.chitchat.interfaces.INetwork;
+import mta.se.chitchat.network.TCPNetwork;
+import mta.se.chitchat.security.Security;
+import mta.se.chitchat.settings.AudioSettings;
+import mta.se.chitchat.settings.ConnectionSettings;
+import mta.se.chitchat.utils.AudioBase;
+import mta.se.chitchat.utils.AudioCapture;
+import mta.se.chitchat.utils.AudioPlayback;
+import mta.se.chitchat.utils.AudioUtils;
 
 /**
  * 

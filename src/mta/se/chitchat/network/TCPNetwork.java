@@ -1,21 +1,14 @@
 package mta.se.chitchat.network;
 
-import static mta.se.chitchat.utils.Constants.TCP_NODELAY;
-import static mta.se.chitchat.utils.Constants.TCP_RECEIVE_BUFFER_SIZE;
-import static mta.se.chitchat.utils.Constants.TCP_SEND_BUFFER_SIZE;
+import mta.se.chitchat.model.MasterModel;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
+import java.net.*;
 
-import javax.swing.JOptionPane;
-
-import mta.se.chitchat.model.MasterModel;
+import static mta.se.chitchat.utils.Constants.*;
 
 /**
  * 
@@ -27,6 +20,7 @@ public class TCPNetwork extends BaseNetwork {
 	private ServerSocket m_serverSocket;
 	private Socket m_commSocket;
 
+	
 	public TCPNetwork(MasterModel masterModel) {
 		super(masterModel);
 	}
@@ -63,10 +57,10 @@ public class TCPNetwork extends BaseNetwork {
 			} else {
 				m_commSocket = new Socket(addr, getPort());
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Invalid port " + strPort);
+			e.printStackTrace();
+		} catch (Exception e){
 			e.printStackTrace();
 		}
 		setSocketOptions(m_commSocket);
@@ -99,10 +93,12 @@ public class TCPNetwork extends BaseNetwork {
 		if (bListen != isListening()) {
 			if (bListen) {
 				try {
+					// c
 					m_serverSocket = new ServerSocket(getPort());
 					m_serverSocket.setSoTimeout(2000);
+					// c
 				} catch (IOException e) {
-					//e.printStackTrace();
+					e.printStackTrace();
 				}
 			} else {
 				try {
@@ -126,11 +122,11 @@ public class TCPNetwork extends BaseNetwork {
 	public boolean listen() {
 		Socket s = null;
 		try {
-			s = m_serverSocket.accept();
+			s =  m_serverSocket.accept();
 			setSocketOptions(s);
 		} catch (SocketTimeoutException e) {
 		} catch (IOException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 		if (s != null) {
 			m_commSocket = s;

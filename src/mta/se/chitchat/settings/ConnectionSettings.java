@@ -1,9 +1,8 @@
-package core.settings;
+package mta.se.chitchat.settings;
 
-import static core.utils.Constants.DEFAULT_CONNECTION_TYPE;
-import static core.utils.Constants.DEFAULT_FORMAT_CODE;
-import static core.utils.Constants.DEFAULT_PORT;
-import core.model.MasterModel;
+import mta.se.chitchat.model.MasterModel;
+
+import static mta.se.chitchat.utils.Constants.*;
 
 /**
  * 

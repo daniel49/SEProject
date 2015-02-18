@@ -1,7 +1,5 @@
 package mta.se.chitchat;
 
-import javax.swing.JOptionPane;
-
 import mta.se.chitchat.controller.ChatController;
 import mta.se.chitchat.model.ChatModel;
 import mta.se.chitchat.model.MasterModel;
@@ -24,14 +22,9 @@ public class Main {
 			MasterModel master = new MasterModel();
 			ChatModel model = master.configureMasterModel();
 			// ChatModel model = new ChatModel(master);
-			ChatView view = null;
-			try {
-				view = new ChatView();
-				view.frmChitChat.setVisible(true);
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			ChatView view = new ChatView();
+			view.frmChitChat.setVisible(true);
+			
 			ChatController controller = new ChatController();
 
 			// Attach the view to the model
@@ -45,6 +38,7 @@ public class Main {
 			controller.addModel(model);
 			controller.addView(view);
 
+			
 		} catch (Throwable t) {
 			System.err.println("Exception occurred in main():");
 			t.printStackTrace();

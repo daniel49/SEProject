@@ -1,4 +1,4 @@
-package core.controller;
+package mta.se.chitchat.controller;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
-import core.interfaces.IController;
-import core.interfaces.IView;
-import core.model.ChatModel;
-import core.view.ChatView;
+import mta.se.chitchat.interfaces.IController;
+import mta.se.chitchat.interfaces.IView;
+import mta.se.chitchat.model.ChatModel;
+import mta.se.chitchat.view.ChatView;
 
 /**
  * 

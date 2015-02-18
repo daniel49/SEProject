@@ -1,4 +1,4 @@
-package core.interfaces;
+package mta.se.chitchat.interfaces;
 
 import java.io.IOException;
 import java.io.InputStream;
