@@ -24,6 +24,7 @@ import java.io.InputStream;
  */
 public class ChatView extends JFrame implements IModelListener, IView {
 
+	private static final long serialVersionUID = 1L;
 	private ChatModel m_chatModel;
 	public JFrame frmChitChat;
 	private JTextField m_ipTextField;

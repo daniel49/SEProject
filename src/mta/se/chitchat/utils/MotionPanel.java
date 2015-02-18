@@ -1,17 +1,21 @@
 package mta.se.chitchat.utils;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 public class MotionPanel extends JPanel{
-    private Point initialClick;
+
+	private static final long serialVersionUID = 1L;
+	private Point initialClick;
     private JFrame parent;
 
     public MotionPanel(final JFrame parent){
-    this.parent = parent;
+    	this.parent = parent;
 
     addMouseListener(new MouseAdapter() {
         public void mousePressed(MouseEvent e) {

@@ -1,8 +1,8 @@
-package core.model;
+package mta.se.chitchat.model;
 
-import core.model.ChatModel;
-import core.settings.AudioSettings;
-import core.settings.ConnectionSettings;
+import mta.se.chitchat.model.ChatModel;
+import mta.se.chitchat.settings.AudioSettings;
+import mta.se.chitchat.settings.ConnectionSettings;
 
 /**
  * 

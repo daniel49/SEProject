@@ -1,12 +1,9 @@
-package core.settings;
+package mta.se.chitchat.settings;
 
-import static core.utils.Constants.BUFFER_SIZE_INDEX_DEFAULT;
-import static core.utils.Constants.BUFFER_SIZE_MILLIS;
-import static core.utils.Constants.DEBUG;
-import static core.utils.Constants.DIR_MIC;
-import static core.utils.Constants.DIR_SPK;
-import static core.utils.Constants.VERBOSE;
-import static core.utils.Constants.out;
+import static mta.se.chitchat.utils.Constants.BUFFER_SIZE_INDEX_DEFAULT;
+import static mta.se.chitchat.utils.Constants.BUFFER_SIZE_MILLIS;
+import static mta.se.chitchat.utils.Constants.DIR_MIC;
+import static mta.se.chitchat.utils.Constants.DIR_SPK;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +18,7 @@ import javax.sound.sampled.Line;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.Port;
 
-import core.model.MasterModel;
+import mta.se.chitchat.model.MasterModel;
 
 /**
  * 
@@ -90,7 +87,6 @@ public class AudioSettings {
 				addMixer(mixer, mixer.getSourceLineInfo(), DIR_SPK);
 				addMixer(mixer, mixer.getTargetLineInfo(), DIR_MIC);
 			} catch (Exception e) {
-				if (DEBUG)
 					e.printStackTrace();
 			}
 		}
@@ -100,12 +96,6 @@ public class AudioSettings {
 			}
 		}
 		inited = true;
-		if (VERBOSE) {
-			out("Microphone Ports:  " + ports[DIR_MIC].size());
-			out("Microphone Mixers: " + mixers[DIR_MIC].size());
-			out("Speaker Ports:  " + ports[DIR_SPK].size());
-			out("Speaker Mixers: " + mixers[DIR_SPK].size());
-		}
 	}
 
 	/**
@@ -155,7 +145,6 @@ public class AudioSettings {
 					}
 				}
 			} catch (Exception e) {
-				if (DEBUG)
 					e.printStackTrace();
 			}
 		}
@@ -182,8 +171,6 @@ public class AudioSettings {
 	/** set index in list returned in getMixers */
 	public void setSelMixer(int d, int index) {
 		if (index < 0 || index >= mixers[d].size()) {
-			if (DEBUG)
-				out("setSelMixer out of range: iondex=" + index);
 			return;
 		} else {
 			mixer[d] = mixers[d].get(index);
@@ -212,8 +199,6 @@ public class AudioSettings {
 
 	public void setSelPort(int d, int index, boolean doSelect) {
 		if (index < 0 || index >= ports[d].size()) {
-			if (DEBUG)
-				out("setSelPort out of range: iondex=" + index);
 			closePort(d);
 			return;
 		} else {
@@ -222,8 +207,6 @@ public class AudioSettings {
 			if (doSelect && d == DIR_MIC && portSelect[d] != null) {
 				portSelect[d].setValue(true);
 			}
-			if (DEBUG)
-				out("Selected " + portNames[d].get(index));
 		}
 	}
 
@@ -269,7 +252,6 @@ public class AudioSettings {
 			}
 
 		} catch (Exception e) {
-			if (DEBUG)
 				e.printStackTrace();
 			closePort(d);
 		}
