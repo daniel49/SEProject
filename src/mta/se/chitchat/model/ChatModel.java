@@ -1,15 +1,15 @@
-package mta.se.chitchat.model;
+package core.model;
 
-import static mta.se.chitchat.utils.Constants.AUDIO_PROPERTY;
-import static mta.se.chitchat.utils.Constants.CONNECTION_PROPERTY;
-import static mta.se.chitchat.utils.Constants.CONNECTION_TYPE_TCP;
-import static mta.se.chitchat.utils.Constants.DIR_MIC;
-import static mta.se.chitchat.utils.Constants.DIR_SPK;
-import static mta.se.chitchat.utils.Constants.FORMAT_CODES;
-import static mta.se.chitchat.utils.Constants.PROTOCOL_ACK;
-import static mta.se.chitchat.utils.Constants.PROTOCOL_ERROR;
-import static mta.se.chitchat.utils.Constants.PROTOCOL_MAGIC;
-import static mta.se.chitchat.utils.Constants.PROTOCOL_VERSION;
+import static core.utils.Constants.AUDIO_PROPERTY;
+import static core.utils.Constants.CONNECTION_PROPERTY;
+import static core.utils.Constants.CONNECTION_TYPE_TCP;
+import static core.utils.Constants.DIR_MIC;
+import static core.utils.Constants.DIR_SPK;
+import static core.utils.Constants.PROTOCOL_ACK;
+import static core.utils.Constants.PROTOCOL_ERROR;
+import static core.utils.Constants.PROTOCOL_MAGIC;
+import static core.utils.Constants.PROTOCOL_VERSION;
+import static core.utils.Constants.FORMAT_CODE_TELEPHONE;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -24,15 +24,16 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import mta.se.chitchat.interfaces.IModelListener;
-import mta.se.chitchat.interfaces.INetwork;
-import mta.se.chitchat.network.TCPNetwork;
-import mta.se.chitchat.settings.AudioSettings;
-import mta.se.chitchat.settings.ConnectionSettings;
-import mta.se.chitchat.utils.AudioBase;
-import mta.se.chitchat.utils.AudioCapture;
-import mta.se.chitchat.utils.AudioPlayback;
-import mta.se.chitchat.utils.AudioUtils;
+import core.interfaces.IModelListener;
+import core.interfaces.INetwork;
+import core.network.TCPNetwork;
+import core.security.Security;
+import core.settings.AudioSettings;
+import core.settings.ConnectionSettings;
+import core.utils.AudioBase;
+import core.utils.AudioCapture;
+import core.utils.AudioPlayback;
+import core.utils.AudioUtils;
 
 /**
  * 
@@ -54,6 +55,8 @@ public class ChatModel {
 	private int listenPort;
 	private List<IModelListener> mListeners;
 
+	Security security;
+	byte[] diffieHellmannSecret;
 	
 	public ChatModel(MasterModel master) {
 		this.m_masterModel = master;
@@ -70,6 +73,9 @@ public class ChatModel {
 		audio[DIR_SPK] = ap;
 		ap.setChatModel(this);
 		m_audioActive = false;
+		
+		security = new Security();
+		
 	}
 
 	/**
@@ -231,8 +237,7 @@ public class ChatModel {
 		boolean bHandshakeSuccessful = false;
 		if (bActive) {
 			bHandshakeSuccessful = doHandshakeActive();
-		} else 
-		{
+		} else {
 			bHandshakeSuccessful = doHandshakePassive();
 		}
 		if (bHandshakeSuccessful) {
@@ -278,6 +283,9 @@ public class ChatModel {
 			streamError("error on remote peer");
 			return false;
 		}
+		
+		diffieHellmannSecret = security.diffieHellmannActive(getSendStream(), getReceiveStream());
+		
 		return true;
 	}
 
@@ -314,7 +322,7 @@ public class ChatModel {
 				} else {
 					w = (abBuffer[8] << 24) | (abBuffer[9] << 16)
 							| (abBuffer[10] << 8) | abBuffer[11];
-					if (w < 0 || w > FORMAT_CODES.length) {
+					if (w != FORMAT_CODE_TELEPHONE) {
 						streamError("wrong format code");
 						bSuccess = false;
 					}
@@ -332,13 +340,15 @@ public class ChatModel {
 			streamError("I/O error during handshake (passive, phase II)");
 			bSuccess = false;
 		}
+		
+		diffieHellmannSecret = security.diffieHellmannPassive(getSendStream(), getReceiveStream());
+
 		return bSuccess;
 	}
 
 	public boolean isConnected() {
 		return getNetwork().isConnected();
 	}
-
 
 	/**
 	 * Set up audio connections
@@ -433,6 +443,11 @@ public class ChatModel {
 	public OutputStream getSendStream() {
 		return m_sendStream;
 	}
+	
+	public byte[] getSharedSecret() {
+		return diffieHellmannSecret;
+		//return new byte[] {0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02,0x03,0x01,0x02};
+	}
 
 	private void streamError(String strError) {
 		JOptionPane.showMessageDialog(null, new Object[] { strError,
@@ -442,7 +457,6 @@ public class ChatModel {
 		closeAudio();
 		notifyConnection();
 	}
-
 
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		m_propertyChangeSupport.addPropertyChangeListener(listener);

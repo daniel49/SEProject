@@ -1,4 +1,4 @@
-package mta.se.chitchat.interfaces;
+package core.interfaces;
 
 import java.awt.event.ActionListener;
 
