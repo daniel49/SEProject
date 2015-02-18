@@ -29,6 +29,12 @@ public class AudioCapture extends AudioBase {
 	private CaptureThread thread;
 	private Security security;
 	
+	/**
+	 * AudioCapture constructor
+	 * @param formatCode
+	 * @param mixer
+	 * @param bufferSizeMillis
+	 */
 	public AudioCapture(int formatCode, Mixer mixer, int bufferSizeMillis) {
 		super("Microphone", formatCode, mixer, bufferSizeMillis);
 		security = new Security();

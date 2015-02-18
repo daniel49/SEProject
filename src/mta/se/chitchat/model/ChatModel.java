@@ -38,7 +38,8 @@ import mta.se.chitchat.utils.AudioUtils;
 /**
  * 
  * @author Ilie Daniel, Cosovanu Vasile and Radu Ionut </p> Software Engineering
- *         Project </p> The model that holds data for the MVC
+ *         Project </p> The model that holds data for the MVC and work
+ *         in relationship with the view and controller
  */
 public class ChatModel {
 
@@ -58,6 +59,10 @@ public class ChatModel {
 	Security security;
 	byte[] diffieHellmannSecret;
 	
+	/**
+	 * ChatModel constructor
+	 * @param master MasterModel object
+	 */
 	public ChatModel(MasterModel master) {
 		this.m_masterModel = master;
 		m_propertyChangeSupport = new PropertyChangeSupport(this);
