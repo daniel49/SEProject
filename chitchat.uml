@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>mta.se.chitchat</OriginalElement>
+  <nodes>
+    <node x="2521.5785807291663" y="3020.5">mta.se.chitchat.model.MasterModel</node>
+    <node x="187.10624999999982" y="2844.0">mta.se.chitchat.view.ChatView</node>
+    <node x="675.9895833333333" y="55.0">mta.se.chitchat.security.GenerateKeyPair</node>
+    <node x="375.0" y="574.5">mta.se.chitchat.utils.AudioCapture.CaptureThread</node>
+    <node x="0.0" y="519.0">mta.se.chitchat.utils.AudioCapture.TargetDataLineMeter</node>
+    <node x="2601.8285807291663" y="2039.0">mta.se.chitchat.settings.ConnectionSettings</node>
+    <node x="2274.3285807291663" y="585.0">mta.se.chitchat.network.BaseNetwork</node>
+    <node x="1848.8285807291663" y="1215.0">mta.se.chitchat.model.ChatModel.ListenThread</node>
+    <node x="527.4812499999999" y="2139.0">mta.se.chitchat.interfaces.IView</node>
+    <node x="1175.064583333333" y="1555.0">mta.se.chitchat.model.ChatModel</node>
+    <node x="2124.8285807291663" y="1127.0">mta.se.chitchat.network.TCPNetwork</node>
+    <node x="943.8702473958331" y="3431.0">mta.se.chitchat.Main</node>
+    <node x="811.4895833333334" y="1149.0">mta.se.chitchat.utils.AudioPlayback</node>
+    <node x="327.07858072916633" y="1116.0">mta.se.chitchat.utils.AudioCapture</node>
+    <node x="904.9895833333333" y="574.5">mta.se.chitchat.utils.AudioPlayback.PlayThread</node>
+    <node x="3609.8285807291663" y="0.0">mta.se.chitchat.utils.Constants</node>
+    <node x="109.11588541666652" y="1260.0">mta.se.chitchat.interfaces.IModelListener</node>
+    <node x="868.1062499999998" y="2095.0">mta.se.chitchat.interfaces.IController</node>
+    <node x="0.0" y="3527.0">mta.se.chitchat.utils.AudioUtils</node>
+    <node x="812.1062499999999" y="2965.0">mta.se.chitchat.controller.ChatController</node>
+    <node x="663.9895833333333" y="586.0">mta.se.chitchat.security.Security</node>
+    <node x="282.4812499999998" y="2105.5">mta.se.chitchat.utils.MotionPanel</node>
+    <node x="2315.8285807291663" y="0.0">mta.se.chitchat.interfaces.INetwork</node>
+    <node x="2916.8285807291663" y="1841.0">mta.se.chitchat.settings.AudioSettings</node>
+    <node x="1191.989583333333" y="255.0">mta.se.chitchat.utils.AudioBase</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="mta.se.chitchat.controller.ChatController" target="mta.se.chitchat.interfaces.IController">
+      <point x="-1.1368683772161603E-13" y="-147.5" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioPlayback" target="mta.se.chitchat.utils.AudioPlayback.PlayThread">
+      <point x="30.416666666666515" y="-136.5" />
+      <point x="1024.40625" y="1076.0" />
+      <point x="1038.4895833333333" y="1076.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioPlayback" target="mta.se.chitchat.security.Security">
+      <point x="-91.25000000000011" y="-136.5" />
+      <point x="902.7395833333333" y="1076.0" />
+      <point x="866.5729166666666" y="1076.0" />
+      <point x="92.08333333333337" y="69.5" />
+    </edge>
+    <edge source="mta.se.chitchat.view.ChatView" target="mta.se.chitchat.interfaces.IView">
+      <point x="75.625" y="-268.5" />
+      <point x="565.2312499999998" y="2824.0" />
+      <point x="584.2312499999999" y="2824.0" />
+      <point x="-56.75" y="25.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel.ListenThread" target="mta.se.chitchat.model.ChatModel">
+      <point x="32.0" y="70.5" />
+      <point x="2008.8285807291663" y="1505.0" />
+      <point x="2150.2645833333327" y="1505.0" />
+      <point x="339.1999999999998" y="-609.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture" target="mta.se.chitchat.utils.AudioCapture.CaptureThread">
+      <point x="-26.5625" y="-169.5" />
+      <point x="513.0160807291663" y="1096.0" />
+      <point x="508.5" y="1096.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.network.TCPNetwork">
+      <point x="508.8000000000002" y="-609.5" />
+      <point x="2319.864583333333" y="1535.0" />
+      <point x="2347.3285807291663" y="1535.0" />
+      <point x="0.0" y="158.5" />
+    </edge>
+    <edge source="mta.se.chitchat.view.ChatView" target="mta.se.chitchat.model.ChatModel">
+      <point x="226.875" y="-268.5" />
+      <point x="716.4812499999998" y="2814.0" />
+      <point x="1302.2645833333331" y="2814.0" />
+      <point x="-508.79999999999995" y="609.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture" target="mta.se.chitchat.model.ChatModel">
+      <point x="106.25" y="169.5" />
+      <point x="645.8285807291663" y="1515.0" />
+      <point x="1387.0645833333335" y="1515.0" />
+      <point x="-423.99999999999955" y="-609.5" />
+    </edge>
+    <edge source="mta.se.chitchat.Main" target="mta.se.chitchat.view.ChatView">
+      <point x="-51.0" y="-25.5" />
+      <point x="969.3702473958331" y="3406.0" />
+      <point x="489.6062499999998" y="3406.0" />
+      <point x="0.0" y="268.5" />
+    </edge>
+    <edge source="mta.se.chitchat.view.ChatView" target="mta.se.chitchat.utils.MotionPanel">
+      <point x="-75.625" y="-268.5" />
+      <point x="413.9812499999998" y="2824.0" />
+      <point x="394.9812499999998" y="2824.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.model.MasterModel">
+      <point x="508.8000000000002" y="609.5" />
+      <point x="2319.864583333333" y="2804.0" />
+      <point x="2607.134136284722" y="2804.0" />
+      <point x="-68.44444444444434" y="-92.0" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioPlayback" target="mta.se.chitchat.model.ChatModel">
+      <point x="91.24999999999989" y="136.5" />
+      <point x="1085.2395833333333" y="1475.0" />
+      <point x="1726.2645833333333" y="1475.0" />
+      <point x="-84.79999999999973" y="-609.5" />
+    </edge>
+    <edge source="mta.se.chitchat.settings.AudioSettings" target="mta.se.chitchat.model.MasterModel">
+      <point x="216.0" y="323.5" />
+      <point x="3456.8285807291663" y="2824.0" />
+      <point x="2812.467469618055" y="2824.0" />
+      <point x="136.8888888888887" y="-92.0" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.utils.AudioBase">
+      <point x="84.80000000000018" y="-609.5" />
+      <point x="1895.8645833333333" y="1535.0" />
+      <point x="1838.3285807291663" y="1535.0" />
+      <point x="1838.3285807291663" y="1096.0" />
+      <point x="1947.114583333333" y="1096.0" />
+      <point x="323.625" y="400.5" />
+    </edge>
+    <edge source="mta.se.chitchat.security.Security" target="mta.se.chitchat.security.GenerateKeyPair">
+      <point x="0.0" y="-69.5" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="mta.se.chitchat.network.BaseNetwork" target="mta.se.chitchat.model.MasterModel">
+      <point x="73.0" y="70.5" />
+      <point x="2493.3285807291663" y="1096.0" />
+      <point x="2591.3285807291663" y="1096.0" />
+      <point x="2591.3285807291663" y="2794.0" />
+      <point x="2641.356358506944" y="2794.0" />
+      <point x="-34.22222222222217" y="-92.0" />
+    </edge>
+    <edge source="mta.se.chitchat.controller.ChatController" target="mta.se.chitchat.interfaces.IView">
+      <point x="-128.0000000000001" y="-147.5" />
+      <point x="876.1062499999998" y="2804.0" />
+      <point x="697.7312499999999" y="2804.0" />
+      <point x="56.75" y="25.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.MasterModel" target="mta.se.chitchat.model.ChatModel">
+      <point x="-136.88888888888914" y="-92.0" />
+      <point x="2538.689691840277" y="2824.0" />
+      <point x="1811.064583333333" y="2824.0" />
+      <point x="0.0" y="609.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture.TargetDataLineMeter" target="mta.se.chitchat.utils.AudioCapture">
+      <point x="88.75" y="136.5" />
+      <point x="266.25" y="1086.0" />
+      <point x="406.76608072916633" y="1086.0" />
+      <point x="-132.8125" y="-169.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.MasterModel" target="mta.se.chitchat.settings.ConnectionSettings">
+      <point x="0.0" y="-92.0" />
+      <point x="-73.75" y="125.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.utils.AudioCapture">
+      <point x="-508.7999999999995" y="-609.5" />
+      <point x="1302.2645833333336" y="1525.0" />
+      <point x="433.32858072916633" y="1525.0" />
+      <point x="-106.25" y="169.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioPlayback" target="mta.se.chitchat.utils.AudioBase">
+      <point x="152.08333333333314" y="-136.5" />
+      <point x="1146.0729166666665" y="1096.0" />
+      <point x="1515.614583333333" y="1096.0" />
+      <point x="-107.875" y="400.5" />
+    </edge>
+    <edge source="mta.se.chitchat.network.BaseNetwork" target="mta.se.chitchat.interfaces.INetwork">
+      <point x="0.0" y="-70.5" />
+      <point x="2420.3285807291663" y="230.0" />
+      <point x="2408.0785807291663" y="230.0" />
+      <point x="-92.25" y="102.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioPlayback.PlayThread" target="mta.se.chitchat.utils.AudioPlayback">
+      <point x="89.0" y="81.0" />
+      <point x="1127.4895833333333" y="1076.0" />
+      <point x="1085.2395833333333" y="1076.0" />
+      <point x="91.24999999999989" y="-136.5" />
+    </edge>
+    <edge source="mta.se.chitchat.network.TCPNetwork" target="mta.se.chitchat.network.BaseNetwork">
+      <point x="0.0" y="-158.5" />
+      <point x="-73.0" y="70.5" />
+    </edge>
+    <edge source="mta.se.chitchat.Main" target="mta.se.chitchat.controller.ChatController">
+      <point x="0.0" y="-25.5" />
+      <point x="1020.3702473958331" y="3406.0" />
+      <point x="1004.1062499999999" y="3406.0" />
+      <point x="0.0" y="147.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture" target="mta.se.chitchat.utils.AudioCapture.TargetDataLineMeter">
+      <point x="-185.9375" y="-169.5" />
+      <point x="353.64108072916633" y="1096.0" />
+      <point x="88.75" y="1096.0" />
+      <point x="-88.75" y="136.5" />
+    </edge>
+    <edge source="mta.se.chitchat.Main" target="mta.se.chitchat.model.MasterModel">
+      <point x="51.0" y="-25.5" />
+      <point x="1071.370247395833" y="3406.0" />
+      <point x="2675.5785807291663" y="3406.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="mta.se.chitchat.model.MasterModel" target="mta.se.chitchat.settings.AudioSettings">
+      <point x="102.66666666666652" y="-92.0" />
+      <point x="2778.245247395833" y="2814.0" />
+      <point x="3240.8285807291663" y="2814.0" />
+      <point x="0.0" y="323.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.model.ChatModel.ListenThread">
+      <point x="254.4000000000001" y="-609.5" />
+      <point x="2065.4645833333334" y="1515.0" />
+      <point x="1944.8285807291663" y="1515.0" />
+      <point x="-32.0" y="70.5" />
+    </edge>
+    <edge source="mta.se.chitchat.controller.ChatController" target="mta.se.chitchat.model.ChatModel">
+      <point x="127.99999999999989" y="-147.5" />
+      <point x="1132.1062499999998" y="2824.0" />
+      <point x="1556.664583333333" y="2824.0" />
+      <point x="-254.4000000000001" y="609.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture" target="mta.se.chitchat.utils.AudioBase">
+      <point x="185.9375" y="-169.5" />
+      <point x="725.5160807291663" y="1086.0" />
+      <point x="1299.864583333333" y="1086.0" />
+      <point x="-323.625" y="400.5" />
+    </edge>
+    <edge source="mta.se.chitchat.view.ChatView" target="mta.se.chitchat.interfaces.IModelListener">
+      <point x="-226.875" y="-268.5" />
+      <point x="262.7312499999998" y="2824.0" />
+      <point x="143.86588541666652" y="2824.0" />
+      <point x="-34.75" y="25.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.interfaces.IModelListener">
+      <point x="-593.5999999999995" y="-609.5" />
+      <point x="1217.4645833333336" y="1535.0" />
+      <point x="213.36588541666652" y="1535.0" />
+      <point x="34.75" y="25.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.utils.AudioPlayback">
+      <point x="-169.59999999999968" y="-609.5" />
+      <point x="1641.4645833333334" y="1485.0" />
+      <point x="902.7395833333334" y="1485.0" />
+      <point x="-91.25" y="136.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture" target="mta.se.chitchat.security.Security">
+      <point x="132.8125" y="-169.5" />
+      <point x="672.3910807291663" y="1096.0" />
+      <point x="719.2395833333333" y="1096.0" />
+      <point x="-55.25" y="69.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.security.Security">
+      <point x="-254.39999999999964" y="-609.5" />
+      <point x="1556.6645833333334" y="1495.0" />
+      <point x="779.9895833333331" y="1495.0" />
+      <point x="779.9895833333331" y="1076.0" />
+      <point x="792.9062499999999" y="1076.0" />
+      <point x="18.41666666666663" y="69.5" />
+    </edge>
+    <edge source="mta.se.chitchat.utils.AudioCapture.CaptureThread" target="mta.se.chitchat.utils.AudioCapture">
+      <point x="89.0" y="81.0" />
+      <point x="597.5" y="1096.0" />
+      <point x="566.1410807291663" y="1096.0" />
+      <point x="26.5625" y="-169.5" />
+    </edge>
+    <edge source="mta.se.chitchat.model.ChatModel" target="mta.se.chitchat.interfaces.INetwork">
+      <point x="593.5999999999999" y="-609.5" />
+      <point x="2404.664583333333" y="1535.0" />
+      <point x="2580.3285807291663" y="1535.0" />
+      <point x="2580.3285807291663" y="230.0" />
+      <point x="2592.5785807291663" y="230.0" />
+      <point x="92.25" y="102.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.30000000000000004" x="1421.6666666666665" y="1242.9999999999998" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
