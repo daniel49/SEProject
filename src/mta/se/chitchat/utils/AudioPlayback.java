@@ -15,7 +15,7 @@ import mta.se.chitchat.security.Security;
 /**
  * 
  * @author Ilie Daniel, Cosovanu Vasile and Radu Ionut </p> Software Engineering
- *         Project </p> Class that reads its audio from an AudioInputStream
+ *         Project </p> Class that reads its audio from an AudioInputStream and writes to an audio output device
  */
 public class AudioPlayback extends AudioBase {
 
@@ -24,6 +24,12 @@ public class AudioPlayback extends AudioBase {
 	private PlayThread thread;
 	private Security security;
 	
+	/**
+	 * AudioPlayback constructor
+	 * @param formatCode
+	 * @param mixer
+	 * @param bufferSizeMillis
+	 */
 	public AudioPlayback(int formatCode, Mixer mixer, int bufferSizeMillis) {
 		super("Speaker", formatCode, mixer, bufferSizeMillis);
 		security = new Security();
