@@ -1,3 +1,3 @@
 ChitChat
 ========
-Aplicatia permite conexiunea a doi sau mai multi clienti pentru a comunica prin voce intr-o retea locala.
+Aplicatia implementeaza o comunicatie peer-to-peer prin voce in reteaua locala.
