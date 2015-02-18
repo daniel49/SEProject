@@ -14,7 +14,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.io.InputStream;
-
 /**
  * 
  * @author Ilie Daniel, Cosovanu Vasile and Radu Ionut </p> Software Engineering
